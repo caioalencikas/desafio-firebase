@@ -2,9 +2,9 @@ package com.example.desafio_firebase.games.view
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.desafio_firebase.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -13,7 +13,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-class GameDetailsActivity : AppCompatActivity() {    private lateinit var auth: FirebaseAuth
+class GameDetailsActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
     private lateinit var user: FirebaseUser
     private lateinit var storage: FirebaseStorage
     private lateinit var storageRef: StorageReference
@@ -36,7 +37,7 @@ class GameDetailsActivity : AppCompatActivity() {    private lateinit var auth: 
 
         txtName.text = name
         txtName2.text = name
-        txtYear.text = "Lançamento: " + year
+        txtYear.text = year
         txtDescription.text = description
 
         Glide.with(this).load(image).into(imgImage)

@@ -70,16 +70,32 @@
             android:textSize="24sp"
             tools:text="Mortal Combat X"/>
 
-        <TextView
-            android:id="@+id/txtGameDetailsYear"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="19dp"
-            android:layout_marginLeft="19dp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/description"
-            android:textSize="21sp"
-            tools:text="Lançamento: 2018" />
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="19dp"
+                android:layout_marginLeft="19dp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/description"
+                android:textSize="21sp"
+                tools:text="Lançamento: " />
+
+            <TextView
+                android:id="@+id/txtGameDetailsYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/description"
+                android:textSize="21sp"
+                tools:text="2018" />
+
+        </LinearLayout>
 
 
         <TextView

@@ -2,11 +2,11 @@ package com.example.desafio_firebase.games.view
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.MimeTypeMap
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.example.desafio_firebase.R
@@ -38,8 +38,7 @@ class GameCreationActivity : AppCompatActivity() {
     private lateinit var btnSaveGame: MaterialButton
     private var imageFileReference: String = ""
     private var imageURI: Uri? = null
-    private lateinit var  imgAddPhoto: ImageView
-
+    private lateinit var imgAddPhoto: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +76,7 @@ class GameCreationActivity : AppCompatActivity() {
             }
         }
 
-        if(name != "null") {
+        if (name != "null") {
             txtName.setText(name)
             txtYear.setText(year)
             txtDescription.setText(description)
@@ -109,17 +108,29 @@ class GameCreationActivity : AppCompatActivity() {
     private fun sendFile(storageReference: StorageReference) {
         imageURI?.run {
 
-            val extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(contentResolver.getType(this))
-            val fileReference = storageReference.child(user.uid).child("${System.currentTimeMillis()}.${extension}")
+            val extension =
+                MimeTypeMap.getSingleton().getExtensionFromMimeType(contentResolver.getType(this))
+            val fileReference =
+                storageReference.child(user.uid).child("${System.currentTimeMillis()}.${extension}")
 
             fileReference.putFile(this).addOnSuccessListener {
-                    fileReference.downloadUrl.addOnSuccessListener {
-                        imageFileReference = it.toString()
-                        saveGame(databaseRef, txtName.text.toString(), txtYear.text.toString(), txtDescription.text.toString(), imageFileReference)
-                    }
+                fileReference.downloadUrl.addOnSuccessListener {
+                    imageFileReference = it.toString()
+                    saveGame(
+                        databaseRef,
+                        txtName.text.toString(),
+                        txtYear.text.toString(),
+                        txtDescription.text.toString(),
+                        imageFileReference
+                    )
                 }
+            }
                 .addOnFailureListener {
-                    Toast.makeText(this@GameCreationActivity, getString(R.string.image_error), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@GameCreationActivity,
+                        getString(R.string.image_error),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
         }
     }
@@ -140,7 +151,13 @@ class GameCreationActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveGame(databaseRef: DatabaseReference, name: String, year: String, description: String, imageRef: String) {
+    private fun saveGame(
+        databaseRef: DatabaseReference,
+        name: String,
+        year: String,
+        description: String,
+        imageRef: String
+    ) {
         val newGame = GameModel(name, year, description, imageRef)
         databaseRef.child(user.uid).child(name).setValue(newGame)
 
