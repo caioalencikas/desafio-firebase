@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
 
     data class GameModelMain(
         val name: String = "",
-        val description: String = "",
         val year: String = "",
+        val description: String = "",
         val image_URI: String = ""
     )
 
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 snapshot.children.forEach() {
                     val data = it.getValue(GameModelMain::class.java)!!
-                    gameList.add(GameModel(data.name, data.description, data.year, data.image_URI))
+                    gameList.add(GameModel(data.name, data.year, data.description, data.image_URI))
                 }
                 viewAdapter.notifyDataSetChanged()
             }
