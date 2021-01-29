@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">desafio-firebase</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="log_in">LOG IN</string>
+    <string name="create_account">Create account</string>
+    <string name="remember">Remember</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="name">Name</string>
+
+
+    <string name="name_fill">Name must be filled in</string>
+    <string name="description_fill">Description must be filled in</string>
+    <string name="year_fill">Year must be filled in</string>
+    <string name="image_fill">Image must be uploaded</string>
+    <string name="image_error">Image cannot be uploaded</string>
+    <string name="email_fill">Email must be filled in</string>
+    <string name="password_fill">Password must be filled in</string>
+
+    <string name="created_at">Created_at</string>
+    <string name="description">Description</string>
+    <string name="save_game">Save game</string>
+
+
+</resources>
